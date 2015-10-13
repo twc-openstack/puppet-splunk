@@ -23,9 +23,9 @@ class splunk::params {
 
   $admin_password = 'changeme'
 
-  $forward_server = ''
+  $forward_server = undef
 
-  $deployment_server = ''
+  $deployment_server = undef
 
   $monitor_path = ''
   $monitor_sourcetype = ''
@@ -42,15 +42,13 @@ class splunk::params {
 
   $protocol = 'tcp'
 
-  $version = ''
-
   ### General variables that affect module's behaviour
   # They can be set at top scope level or in a ENC
 
-  $my_class = ''
-  $source_dir = ''
+  $my_class = undef
+  $source_dir = undef
   $source_dir_purge = false
-  $options = ''
+  $options = {}
   $absent = false
   $disable = false
   $disableboot = false

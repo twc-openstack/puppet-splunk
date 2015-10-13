@@ -220,7 +220,7 @@ class splunk (
   $audit_only          = $splunk::params::audit_only,
   $port                = $splunk::params::port,
   $protocol            = $splunk::params::protocol,
-  $version             = $splunk::params::version,
+  $version,
   ) inherits splunk::params {
 
   # Module's internal variables
@@ -429,7 +429,7 @@ class splunk (
   }
 
   # Setting of files or directories to be monitored
-  if $splunk::monitor_path {
+  if $splunk::monitor_path and $splunk::monitor_path != '' {
     exec { 'splunk_add_monitor':
       command     => "${splunk::basedir}/bin/puppet_add_monitor",
       refreshonly => true,
