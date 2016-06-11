@@ -345,8 +345,6 @@ class splunk (
 
     file { "${splunk::basedir}/${package_provider}":
       ensure => 'directory',
-      owner  => 'root',
-      group  => 'root',
       mode   => '0755',
       before => Exec['splunk_get_package'],
     }
